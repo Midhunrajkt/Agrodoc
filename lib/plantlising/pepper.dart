@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'camera.dart';
-
+import 'package:project/greenPage/commonDisease.dart';
+import 'package:project/greenPage/CommonDisease/pepper.dart';
+import 'package:project/greenPage/Climate/pepper.dart';
+import 'package:project/greenPage/Type/pepper.dart';
 class Pepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -94,9 +97,10 @@ class Pepper extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Camera(
-                                        plantName: "pepper",
-                                      )),
+                                builder: (context) => Camera(
+                                  plantName: "pepper",
+                                ),
+                              ),
                             );
                           },
                         ),
@@ -115,10 +119,12 @@ class Pepper extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //tgo to common
-                            //Navigator.push(context,
-                            // MaterialPageRoute(builder: (context) => CarrotDise()),
-                            // );
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CommonD(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -136,7 +142,12 @@ class Pepper extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //go to climate
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Condition(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -154,7 +165,12 @@ class Pepper extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //go to metod to grow
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Page(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -172,7 +188,12 @@ class Pepper extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //go to type
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Dtype(),
+                              ),
+                            );
                           },
                         )
                       ],

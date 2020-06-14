@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class CommonD extends StatefulWidget {
+  //CommonD({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _CommonDState createState() => _CommonDState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _CommonDState extends State<CommonD> {
+  final commonDisease = [
+    "Pepper bell bacterial spot",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +55,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Pepper', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -75,7 +72,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        'Solanum lycopersicum', //price
+                        'Piper nigrum', //price
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25.0,
@@ -105,11 +102,11 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
-                      image: AssetImage("images/tomatob.png"),
+                      image: AssetImage("images/pepperb.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -131,13 +128,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'Common Disease',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,51 +142,10 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${commonDisease[0]}", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 40.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          ' Chemical Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.chemicalSolution,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black87,
                           ),
                         ),
                       ],

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class Condition extends StatefulWidget {
+  //Condition({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _ConditionState createState() => _ConditionState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _ConditionState extends State<Condition> {
+  final condition = [
+    "Temperature below 100C and above 380C adversely affects plant tissues thereby slow down physiological activities. It thrives well in temperature 100C to 300C with optimum range of temperature is 21-240C. The mean temperature below 160C and above 270C are not desirable",
+    "The plant doesn't withstand frost, it requires low to medium rainfall, and does well under average monthly temperature of 21 to 230C.",
+    "Avoid water stress and long dry period as it causes cracking of fruits. Bright sunshine at the time of fruit set helps to develop dark red coloured fruits.",
+    "Tomato can be grown on a wide range of soils from sandy to heavy clay. However, well-drained, sandy or red loam soils rich in organic matter with a pH range of 6.0-7.0 are considered as ideal."
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +58,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Tomato', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -105,7 +105,7 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
@@ -131,13 +131,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'Weather',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,12 +145,27 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${condition[0]}\n", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
                           ),
                         ),
+                        Text(
+                          ". ${condition[1]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${condition[2]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                       
                       ],
                     ),
                   ),
@@ -163,7 +178,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          ' Chemical Solution',
+                          ' Soil',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -171,27 +186,12 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.chemicalSolution,
+                          ". ${condition[3]}\n", // description
                           style: TextStyle(
-                            fontSize: 16.0,
                             color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
                             fontSize: 16.0,
-                            color: Colors.black87,
                           ),
-                        ),
+                        ), 
                       ],
                     ),
                   ),

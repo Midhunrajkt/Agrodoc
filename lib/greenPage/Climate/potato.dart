@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class Condition extends StatefulWidget {
+  //Condition({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _ConditionState createState() => _ConditionState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _ConditionState extends State<Condition> {
+  final condition = [
+    "Potatoes are essentially a crop which thrive in cooler conditions as long as the temperature stays below 20°C at night, the potatoes should be okay.",
+    "Potatoes can be planted throughout summer as long as the final planting enables the crop to mature before the first frost.",
+    "In subtropical areas, you can plant in April/May.",
+    "Usually the yield isn't wonderful but can fill a need – especially in remote areas.",
+    "Temperatures above 30°C can reduce yield. Cool seasons on the Highveld certainly make a big difference in yield potential.",
+    "Reduce the incidence of scab by planting in soil with a very low pH. Potatoes will do very well in alkaline soil.",
+    "If you choose to keep the soil acidic to reduce scab, you need to ensure the crops grown in rotation with potatoes will be able to grow productively in such conditions.",
+    "Aluminium toxicity can also be a problem in acidic soil"
+     ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +62,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Pepper', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -75,7 +79,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        'Solanum lycopersicum', //price
+                        'Solanum tuberosum', //price
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25.0,
@@ -105,11 +109,11 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
-                      image: AssetImage("images/tomatob.png"),
+                      image: AssetImage("images/potatob.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -131,13 +135,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'Weather',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,12 +149,41 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${condition[0]}\n", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
                           ),
                         ),
+                        Text(
+                          ". ${condition[1]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${condition[2]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${condition[3]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${condition[4]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                       
                       ],
                     ),
                   ),
@@ -163,7 +196,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          ' Chemical Solution',
+                          ' Soil',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -171,27 +204,26 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.chemicalSolution,
+                          ". ${condition[5]}\n", // description
                           style: TextStyle(
-                            fontSize: 16.0,
                             color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
                             fontSize: 16.0,
-                            color: Colors.black87,
                           ),
-                        ),
+                        ), 
+                        Text(
+                          ". ${condition[6]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
+                        Text(
+                          ". ${condition[7]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
                       ],
                     ),
                   ),

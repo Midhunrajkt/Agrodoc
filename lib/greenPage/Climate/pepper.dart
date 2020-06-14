@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class Condition extends StatefulWidget {
+  //Condition({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _ConditionState createState() => _ConditionState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _ConditionState extends State<Condition> {
+  final condition = [
+    "Pepper is a humid tropic plant, which requires adequate rainfall and humidity. The hot and humid climate of submountanous tracts of Western Ghats and Eastern Ghats is ideal for its growth. It grows successfully between 20o north and south latitude and from sea level upto 1500 meters above MSL. The temperature ranges between 10o and 40oC. A well-distributed annual rainfall of 125-200 cm is considered ideal for pepper.",
+    "Pepper can be grown in a wide range of soils such as clay loam, red loam, sandy loam and lateritic soils with a pH of 4.5 to 6.0, though in its natural habitat, it thrives best on virgin soil rich in organic matter."
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +56,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Pepper', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -75,7 +73,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        'Solanum lycopersicum', //price
+                        'Piper nigrum', //price
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25.0,
@@ -105,11 +103,11 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
-                      image: AssetImage("images/tomatob.png"),
+                      image: AssetImage("images/pepperb.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -131,13 +129,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'Climate and soil Requirement',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,53 +143,20 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${condition[0]}\n", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 40.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
                         Text(
-                          ' Chemical Solution',
+                          ". ${condition[1]}\n", // description
                           style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.chemicalSolution,
-                          style: TextStyle(
-                            fontSize: 16.0,
                             color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
                             fontSize: 16.0,
-                            color: Colors.black87,
                           ),
                         ),
+                        
                       ],
                     ),
                   ),

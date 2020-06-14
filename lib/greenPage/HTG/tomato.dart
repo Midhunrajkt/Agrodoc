@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class HTG extends StatefulWidget {
+  //Condition({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _HTGState createState() => _HTGState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _HTGState extends State<HTG> {
+  final steps = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "10"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +64,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Tomato', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -105,7 +111,7 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
@@ -131,13 +137,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'BEFORE TRANSPLANTING',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,12 +151,27 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${steps[0]}\n", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
                           ),
                         ),
+                        Text(
+                          ". ${steps[1]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${steps[2]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                       
                       ],
                     ),
                   ),
@@ -163,7 +184,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          ' Chemical Solution',
+                          ' PLANTING THE TRANSPLANTS',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -171,27 +192,54 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.chemicalSolution,
+                          ". ${steps[3]}\n", // description
                           style: TextStyle(
-                            fontSize: 16.0,
                             color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
                             fontSize: 16.0,
+                          ),
+                        ), 
+                         Text(
+                          ". ${steps[4]}\n", // description
+                          style: TextStyle(
                             color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
+                         Text(
+                          ". ${steps[5]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
+                         Text(
+                          ". ${steps[6]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
+                         Text(
+                          ". ${steps[7]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ), 
+                         Text(
+                          ". ${steps[8]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
                           ),
                         ),
+                         Text(
+                          ". ${steps[9]}\n", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),  
                       ],
                     ),
                   ),

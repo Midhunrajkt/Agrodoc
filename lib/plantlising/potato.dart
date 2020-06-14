@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:project/greenPage/CommonDisease/potato.dart';
 import 'camera.dart';
+import 'package:project/greenPage/Climate/potato.dart';
+import 'package:project/greenPage/Type/potato.dart';
 
 class Potato extends StatefulWidget {
   Potato({Key key}) : super(key: key);
@@ -58,7 +60,7 @@ class _PotatoPageState extends State<Potato> {
                 child: Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('images/abcd.jpg'),
+                          image: AssetImage('images/potato.jpeg'),
                           fit: BoxFit.cover)),
                   height: 200.0,
                   width: 200.0,
@@ -118,7 +120,12 @@ class _PotatoPageState extends State<Potato> {
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {},
+                          onPressed: () { Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CommonD(),
+                              ),
+                            );},
                         ),
                         MaterialButton(
                           height: 15.0,
@@ -135,7 +142,12 @@ class _PotatoPageState extends State<Potato> {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //take camera
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Condition(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -152,9 +164,14 @@ class _PotatoPageState extends State<Potato> {
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {
-                            //take camera
-                          },
+                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Dtype(),
+                              ),
+                            );
+                           }
                         ),
                         MaterialButton(
                           height: 15.0,
@@ -170,9 +187,14 @@ class _PotatoPageState extends State<Potato> {
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {
-                            //take camera
-                          },
+                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Dtype(),
+                              ),
+                            );
+                           }
                         )
                       ],
                     ),

@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 
-class PlantScreen extends StatefulWidget {
-  PlantScreen({this.plantName,this.diseaseName,this.chemicalSolution,this.culturalSolution});
-  final String plantName;
-  final String diseaseName;
-  final String chemicalSolution;
-  final String culturalSolution;
-
-  //PlantScreen({this.plant});
+class Dtype extends StatefulWidget {
+  //CommonD({this.plant});
 
   @override
-  _PlantScreenState createState() => _PlantScreenState();
+  _DtypeState createState() => _DtypeState();
 }
 
-class _PlantScreenState extends State<PlantScreen> {
+class _DtypeState extends State<Dtype> {
+  final dtype = [
+    "Super Sweet 100",
+    "Santorini",
+    "Cherry Nebula",
+    "Alicante",
+    "Adoration",
+    "Azoychka",
+    "Beefsteak",
+    "Japanese Black Trifele",
+    "Plum tomato",
+    "Beefsteak Tomatoes",
+    "Cherokee Purple Tomatoes"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +65,7 @@ class _PlantScreenState extends State<PlantScreen> {
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        widget.plantName, // name
+                        'Tomato', // name
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30.0,
@@ -105,7 +112,7 @@ class _PlantScreenState extends State<PlantScreen> {
                   right: 20.0,
                   bottom: 100.0,
                   child: Hero(
-                    tag: widget.plantName, // url
+                    tag: "tomato", // url
                     child: Image(
                       height: 130.0,
                       width: 210.0,
@@ -131,13 +138,13 @@ class _PlantScreenState extends State<PlantScreen> {
                     padding: EdgeInsets.only(
                       left: 30.0,
                       right: 30.0,
-                      top: 40.0,
+                      top: 50.0,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Predicted Disease',
+                          'Types',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -145,51 +152,80 @@ class _PlantScreenState extends State<PlantScreen> {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          widget.diseaseName, // description
+                          ". ${dtype[0]}", // description
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 16.0,
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 40.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
                         Text(
-                          ' Chemical Solution',
+                          ". ${dtype[1]}", // description
                           style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.chemicalSolution,
-                          style: TextStyle(
-                            fontSize: 16.0,
                             color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          ' Cultural Solution',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          widget.culturalSolution,
-                          style: TextStyle(
                             fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[2]}", // description
+                          style: TextStyle(
                             color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[3]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[4]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[5]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[6]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[7]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[8]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[9]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          ". ${dtype[10]}", // description
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
                           ),
                         ),
                       ],

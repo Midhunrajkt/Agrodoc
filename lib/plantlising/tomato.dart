@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'camera.dart';
+import 'package:project/greenPage/CommonDisease/tomato.dart';
+import 'package:project/greenPage/Climate/tomato.dart';
+import 'package:project/greenPage/Type/tomato.dart';
+import 'package:project/greenPage/HTG/tomato.dart';
+
 
 class Tomato extends StatelessWidget {
   @override
@@ -112,7 +116,12 @@ class Tomato extends StatelessWidget {
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {},
+                          onPressed: () { Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CommonD(),
+                              ),
+                            );},
                         ),
                         MaterialButton(
                           height: 15.0,
@@ -129,7 +138,12 @@ class Tomato extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //take camera
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Condition(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -147,7 +161,12 @@ class Tomato extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //take camera
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HTG(),
+                              ),
+                            );
                           },
                         ),
                         MaterialButton(
@@ -165,7 +184,12 @@ class Tomato extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            //take camera
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Dtype(),
+                              ),
+                            );
                           },
                         )
                       ],

@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; //for capturing image from phone
 import 'dart:io'; // for using file
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
-import 'package:async/async.dart';
-import 'dart:convert'; // for converting to json
+import 'package:async/async.dart' show DelegatingStream, Future;
+//import 'dart:convert'; // for converting to json
 import 'package:connectivity/connectivity.dart';
+import 'package:project/responseConverter/parseJson.dart';
+import 'package:project/greenPage/resultPage.dart';
 
 class Camera extends StatefulWidget {
   Camera({this.plantName});
@@ -16,12 +20,18 @@ class Camera extends StatefulWidget {
 
 class _CameraState extends State<Camera> {
   File _image;
+  String status = "Upload image to predict disease";
   String resp = '';
+  String sol1 = '';
+  String sol2 = '';
+  String sol3 = '';
   var userName = 'lidhishc@flutter.com';
+  var jsonResponse;
 
   // for capturing image from camera
   Future getImageFromCam() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    var pickImage = ImagePicker.pickImage(source: ImageSource.camera);
+    var image = await pickImage;
     setState(() {
       _image = image;
     });
@@ -77,6 +87,7 @@ class _CameraState extends State<Camera> {
                     onPressed: () {
                       setState(() {
                         _image = null;
+                        status = "Upload image to predict disease";
                       });
                     },
                     tooltip: 'Pick Image3',
@@ -92,7 +103,7 @@ class _CameraState extends State<Camera> {
                           _showDialog(
                               'No Internet', "You're not connected to network");
                         } else {
-                          uploadImageToServer(_image, userName);
+                          uploadImageToServer(_image, userName); 
                         }
                       } else {
                         _showDialog(
@@ -108,10 +119,36 @@ class _CameraState extends State<Camera> {
                   )
                 ],
               ),
+              
+              Padding(
+                padding: const EdgeInsets.fromLTRB(35.0, 50.0, 35.0, 50.0),
+                child: Container(
+                  child: Text(status,style: TextStyle(fontSize: 20.0),),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(35.0),
-                child: Container(
-                  child: Text("Result"),
+                child: RaisedButton(
+                  color: Colors.green[600],
+                  onPressed: () {
+                    sol1 != '' && sol2 != ''
+                              ? Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PlantScreen(
+                                          plantName: widget.plantName,
+                                          diseaseName: "$resp",
+                                          chemicalSolution: "$sol1",
+                                          culturalSolution: "$sol2")),
+                                )
+                              : _showDialog('Sorry!', "Something went wrong");
+                  },
+                   child: Text(
+                      "Result",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                 ),
               ),
             ],
@@ -142,6 +179,9 @@ class _CameraState extends State<Camera> {
   }
 
   void uploadImageToServer(File imageFile, var usename) async {
+    setState(() {
+      status = "Wait to click Result button";
+    });
     print("attempting to connect to server……");
     var stream =
         new http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
@@ -149,7 +189,7 @@ class _CameraState extends State<Camera> {
     print(length);
     var uri;
     if (widget.plantName == "tomato") {
-      uri = Uri.parse('http://73103e7c0313.ngrok.io/predicts');
+      uri = Uri.parse('http://09d215a1f26b.ngrok.io/predicts');
     } else if (widget.plantName == "potato") {
       uri = Uri.parse('http://b9a7f529499d.ngrok.io/predicts');
     } else if (widget.plantName == "pepper") {
@@ -166,9 +206,42 @@ class _CameraState extends State<Camera> {
     print(multipartFile);
     var streamedResponse = await request.send();
     var response = await http.Response.fromStream(streamedResponse);
-    var resu = JsonDecoder().convert("$response");
-    this.resp = resu['solution'];
-    print(response.body.toString());
+    jsonResponse = json.decode(response.body);
+    print('hjksk');
+    //print(response.body.toString());
+    print("${response.statusCode}");
+    print("${response.body}");
+    await this.showJson();
+  }
+
+  // void uploadImageToServer(File imageFile) async {
+  //   print("attempting to connect to server……");
+  //   var stream =
+  //       new http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+  //   var length = await imageFile.length();
+  //   print(length);
+  //   var uri = Uri.parse('http://eae0b048.ngrok.io/predict');
+  //   print("connection established.");
+  //   var request = new http.MultipartRequest("POST", uri);
+  //   var multipartFile = new http.MultipartFile('file', stream, length,
+  //       filename: basename(
+  //           imageFile.path)); //contentType: new MediaType(‘image’, ‘png’));
+  //   request.files.add(multipartFile);
+  //   print(multipartFile);
+  //   var streamedResponse = await request.send();
+  //   var response = await http.Response.fromStream(streamedResponse);
+  //   this.resp = response.body.toString();
+  //   print(response.body);
+  // }
+
+  Future showJson() async {
+    JsonConvertor jsonConvertor = new JsonConvertor.fromJson(this.jsonResponse);
+    setState(() {
+      this.resp = jsonConvertor.diseaseName.toString();
+      this.sol1 = jsonConvertor.chemicalSolution.toString();
+      this.sol2 = jsonConvertor.culturalSolution.toString();
+      status = "Click Result button";
+    });
   }
 
   // void uploadImageToServer(File imageFile) async {

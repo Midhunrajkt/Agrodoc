@@ -67,7 +67,9 @@ flutter:
    - images/pumpkin.jpeg
    - images/rice.jpeg
    - images/tomato.jpeg
-  # - images/tomatob.png
+   - images/tomatob.png
+   - images/pepperb.png
+   - images/potatob.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
